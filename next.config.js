@@ -7,10 +7,6 @@ const nextConfig = {
 	images: {
 		disableStaticImages: true,
 	},
-	i18n: {
-		locales: ["en"],
-		defaultLocale: "en",
-	},
 };
 
 module.exports = withPlugins([withFonts, withImages], nextConfig);

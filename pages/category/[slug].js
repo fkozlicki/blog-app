@@ -2,7 +2,7 @@ import React from "react";
 
 import { getCategories, getCategoryPost } from "../../services";
 import { Navbar, PostCard, Categories, Meta } from "../../components";
-import { MDBContainer, MDBCol, MDBRow, MDBTypography } from "mdb-react-ui-kit";
+import { MDBContainer, MDBCol, MDBRow } from "mdb-react-ui-kit";
 
 const CategoryPost = ({ posts }) => {
 	return (
@@ -10,7 +10,6 @@ const CategoryPost = ({ posts }) => {
 			<Meta title="SmartDev" />
 			<Navbar />
 			<main className="pt-6 pt-md-7 min-vh-100">
-				<MDBTypography>s</MDBTypography>
 				<MDBContainer>
 					<MDBRow>
 						<MDBCol size="12" lg="8">
