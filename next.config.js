@@ -1,6 +1,16 @@
-/** @type {import('next').NextConfig} */
+/** @type {import('next').NextConfig} **/
+const withFonts = require("next-fonts");
+const withImages = require("next-images");
+const withPlugins = require("next-compose-plugins");
 const nextConfig = {
-  reactStrictMode: true,
-}
+	reactStrictMode: true,
+	images: {
+		disableStaticImages: true,
+	},
+	i18n: {
+		locales: ["en"],
+		defaultLocale: "en",
+	},
+};
 
-module.exports = nextConfig
+module.exports = withPlugins([withFonts, withImages], nextConfig);
