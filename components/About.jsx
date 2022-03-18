@@ -19,11 +19,7 @@ const About = () => {
 							md="6"
 							className="position-relative order-md-last"
 						>
-							<img
-								className="img-fluid w-100 h-auto"
-								src={aboutImage}
-								alt="design"
-							/>
+							<Image width="626" height="417" src={aboutImage} alt="design" />
 						</MDBCol>
 						<MDBCol size="12" md="6" className="mt-3 text-center text-md-start">
 							<MDBTypography tag="h1" className="fs-2 mb-3">
@@ -31,7 +27,7 @@ const About = () => {
 							</MDBTypography>
 							<MDBTypography variant="p" className="fs-5 m-0">
 								Smart dev to blog na, którym udostępniamy ciekawe i przydane
-								informacje oraz ciekawostki na temat front-end'u.
+								informacje oraz ciekawostki na temat front-end&apos;u.
 							</MDBTypography>
 						</MDBCol>
 					</MDBRow>
