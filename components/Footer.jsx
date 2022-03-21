@@ -12,7 +12,7 @@ const Footer = () => {
 							href="#header"
 							className="my-link display-4 d-block fw-normal text-center m-0"
 						>
-							Devs
+							Programista HTML
 						</a>
 					</MDBCol>
 					<MDBCol
@@ -40,7 +40,7 @@ const Footer = () => {
 				</MDBRow>
 
 				<MDBTypography className="text-center m-0 mt-4">
-					<small>@2022 infodev. All rights reserved.</small>
+					<small>@copyright All rights reserved.</small>
 				</MDBTypography>
 			</MDBContainer>
 		</footer>

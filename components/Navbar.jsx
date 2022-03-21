@@ -57,7 +57,7 @@ const Navbar = () => {
 			>
 				<MDBContainer>
 					<MDBNavbarBrand href="/" className="text-white">
-						Navbar
+						Programista HTML
 					</MDBNavbarBrand>
 					<button
 						className="menuBtn navbar-toggler"
@@ -77,7 +77,7 @@ const Navbar = () => {
 					</button>
 					<MDBCollapse id="navbarCollapse3" show={isOpen} navbar>
 						<MDBNavbarNav left className="justify-content-md-end">
-							<MDBNavbarLink href="/">Start</MDBNavbarLink>
+							<MDBNavbarLink href="/">Home</MDBNavbarLink>
 							<MDBNavbarLink href="/blog">Blog</MDBNavbarLink>
 							<MDBNavbarLink href="/contact">Kontakt</MDBNavbarLink>
 						</MDBNavbarNav>

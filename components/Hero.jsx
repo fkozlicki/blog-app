@@ -21,7 +21,7 @@ const Hero = () => {
 						tag="div"
 						className="display-1 text-uppercase fw-normal"
 					>
-						Czysty kod
+						Programista HTML
 					</MDBTypography>
 					<MDBTypography tag="div" className="fs-3 fw-normal">
 						Dowiedz się więcej o frontendzie rezem z nami.
