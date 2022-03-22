@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import { getPosts, getPostDetails } from "../../services";
 import { MDBContainer, MDBRow, MDBCol } from "mdb-react-ui-kit";
 import {
@@ -11,11 +12,17 @@ import {
 } from "../../components";
 
 const PostDetails = ({ post }) => {
+	const router = useRouter();
+
+	if (router.isFallback) {
+		return <div className="pt-6 pt-md-7">Loading...</div>;
+	}
+
 	return (
 		<>
 			<Meta title={post.title} />
 			<Navbar />
-			<main className="pt-6 pt-md-7 bg-bg-background">
+			<main className="pt-6 pt-md-7 bg-background">
 				<MDBContainer>
 					<MDBRow>
 						<MDBCol size="12" lg="8">
