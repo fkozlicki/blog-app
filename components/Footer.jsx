@@ -20,17 +20,17 @@ const Footer = () => {
 						md="3"
 						className="order-md-first text-center text-md-start"
 					>
-						<a className="my-link d-block" href="#!">
+						<a className="my-link d-block" href="/contact">
 							Kontakt
 						</a>
-						<a className="my-link d-block" href="#!">
+						<a className="my-link d-block" href="/blog">
 							Blog
 						</a>
 					</MDBCol>
 					<MDBCol size="12" md="3" className="text-center text-md-end">
 						<p className="m-0 fs-6 ">
 							<FontAwesomeIcon icon={faEnvelope} width="16" className="me-2" />
-							email@exaple.com
+							filip.kozlickii@gmail.com
 						</p>
 						<a href="#!" className="my-link m-0 fs-6">
 							<FontAwesomeIcon icon={faGlobe} width="16" className="me-2" />
