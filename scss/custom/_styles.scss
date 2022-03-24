@@ -56,3 +56,16 @@ body {
 		color: $secondary !important;
 	}
 }
+pre {
+	font-size: 0.85rem;
+	background: #f8f9fb;
+	padding: 8px;
+	border: 1px solid #dadeed;
+	border-radius: 4px;
+	font-family: SourceCode Pro, monospace;
+}
+blockquote {
+	padding-left: 10px;
+	border-left: 2px solid #eceeef;
+	font-size: 15px;
+}
