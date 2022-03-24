@@ -63,7 +63,7 @@ export const getPostDetails = async (slug) => {
 					slug
 				}
 				content {
-					raw
+					html
 				}
 			}
 		}
