@@ -67,7 +67,7 @@ const CommentsForm = ({ slug }) => {
 	};
 
 	return (
-		<form className="shadow-lg rounded p-4 mb-4">
+		<form className="shadow-lg rounded p-4 mb-4 bg-white">
 			<MDBTypography
 				tag="h1"
 				className="fs-3 fw-bolder mb-2 border-bottom border-color-gray pb-2 px-0"
