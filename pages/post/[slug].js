@@ -18,10 +18,6 @@ const PostDetails = ({ post }) => {
 		return <div className="pt-6 pt-md-7">Loading...</div>;
 	}
 
-	if (!post) {
-		console.log("error");
-	}
-
 	return (
 		<>
 			<Meta title={post.title} />
@@ -64,6 +60,6 @@ export async function getStaticPaths() {
 	const posts = await getPosts();
 	return {
 		paths: posts.map(({ node: { slug } }) => ({ params: { slug } })),
-		fallback: true,
+		fallback: false,
 	};
 }
