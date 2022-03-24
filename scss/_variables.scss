@@ -1,0 +1,28 @@
+// Your custom variables
+$theme-colors: (
+	"primary": #2f3c7e,
+	"secondary": #4255b3,
+	"success": #198754,
+	"danger": #dc3545,
+	"warning": #ffc107,
+	"info": #0dcaf0,
+	"dark": #212529,
+	"light": #f8f9fa,
+	"mask": #00000041,
+	"background": #f2f2f2,
+);
+$spacer: 1rem;
+$spacers: (
+	0: 0,
+	1: $spacer * 0.25,
+	2: $spacer * 0.5,
+	3: $spacer,
+	4: $spacer * 1.5,
+	5: $spacer * 3,
+	6: $spacer * 5,
+	7: $spacer * 8,
+	8: $spacer * 11,
+	9: $spacer * 14,
+	10: $spacer * 17,
+);
+@import "mdb-react-ui-kit/dist/scss/mdb.free.scss";
