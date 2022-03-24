@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { MDBContainer, MDBRow, MDBCol, MDBTypography } from "mdb-react-ui-kit";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faGlobe } from "@fortawesome/free-solid-svg-icons";
@@ -20,12 +21,12 @@ const Footer = () => {
 						md="3"
 						className="order-md-first text-center text-md-start"
 					>
-						<a className="my-link d-block" href="/contact">
-							Kontakt
-						</a>
-						<a className="my-link d-block" href="/blog">
-							Blog
-						</a>
+						<Link href="/contact">
+							<a className="my-link d-block">Kontakt</a>
+						</Link>
+						<Link href="/blog">
+							<a className="my-link d-block">Blog</a>
+						</Link>
 					</MDBCol>
 					<MDBCol size="12" md="3" className="text-center text-md-end">
 						<p className="m-0 fs-6 ">
