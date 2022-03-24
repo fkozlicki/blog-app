@@ -1,64 +1,8 @@
 import React from "react";
 import moment from "moment";
+import parse from "html-react-parser";
 
 const PostDetail = ({ post }) => {
-	const getContentFragment = (index, text, obj, type) => {
-		let modifiedText = text;
-
-		if (obj) {
-			if (obj.bold) {
-				modifiedText = <b key={index}>{text}</b>;
-			}
-
-			if (obj.italic) {
-				modifiedText = <em key={index}>{text}</em>;
-			}
-
-			if (obj.underline) {
-				modifiedText = <u key={index}>{text}</u>;
-			}
-		}
-
-		switch (type) {
-			case "heading-three":
-				return (
-					<h3 key={index} className="text-xl m-0">
-						{modifiedText.map((item, i) => (
-							<React.Fragment key={i}>{item}</React.Fragment>
-						))}
-					</h3>
-				);
-			case "paragraph":
-				return (
-					<p key={index} className="fs-6 m-0">
-						{modifiedText.map((item, i) => (
-							<React.Fragment key={i}>{item}</React.Fragment>
-						))}
-					</p>
-				);
-			case "heading-four":
-				return (
-					<h4 key={index} className="m-0">
-						{modifiedText.map((item, i) => (
-							<React.Fragment key={i}>{item}</React.Fragment>
-						))}
-					</h4>
-				);
-			case "image":
-				return (
-					<img
-						key={index}
-						alt={obj.title}
-						height={obj.height}
-						width={obj.width}
-						src={obj.src}
-					/>
-				);
-			default:
-				return modifiedText;
-		}
-	};
-
 	return (
 		<div className="p-lg-4 pb-4 mb-4 overflow-hidden bg-white shadow-lg rounded">
 			<div className="position-relative overflow-hidden shadow-md mb-2">
@@ -69,7 +13,7 @@ const PostDetail = ({ post }) => {
 				/>
 			</div>
 			<div className="px-3 px-lg-1">
-				<div className="d-flex align-items-center mb-2 w-100 ">
+				<div className="d-flex align-items-center mb-2 w-100">
 					<div className="d-flex align-items-center mb-0 w-auto me-1">
 						<img
 							src={post.author.photo.url}
@@ -106,14 +50,8 @@ const PostDetail = ({ post }) => {
 				</div>
 				<h1 className="mb-2 display-5 fw-normal">{post.title}</h1>
 
-				<div className="d-flex flex-column gap-3">
-					{post.content.raw.children.map((typeObj, index) => {
-						const children = typeObj.children.map((item, itemindex) =>
-							getContentFragment(itemindex, item.text, item)
-						);
-
-						return getContentFragment(index, children, typeObj, typeObj.type);
-					})}
+				<div className="d-flex align-items-start flex-column gap-3">
+					{parse(post.content.html)}
 				</div>
 			</div>
 		</div>
