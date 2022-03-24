@@ -4,6 +4,7 @@ import "../scss/main.scss";
 import "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/free-regular-svg-icons";
 import "@fortawesome/free-solid-svg-icons";
+
 function MyApp({ Component, pageProps }) {
 	return <Component {...pageProps} />;
 }
