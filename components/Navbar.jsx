@@ -8,6 +8,7 @@ import {
 	MDBNavbarLink,
 	MDBCollapse,
 } from "mdb-react-ui-kit";
+import logo from "../public/logo2.png";
 
 const Navbar = () => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -57,7 +58,9 @@ const Navbar = () => {
 			>
 				<MDBContainer>
 					<MDBNavbarBrand href="/" className="text-white">
-						Programista HTML
+						<div>
+							<img src={logo} alt="logo" width="150" className="img-fluid" />
+						</div>
 					</MDBNavbarBrand>
 					<button
 						className="menuBtn navbar-toggler"
