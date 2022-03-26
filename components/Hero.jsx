@@ -1,5 +1,7 @@
 import { MDBTypography, MDBBtn } from "mdb-react-ui-kit";
-import image from "../assets/images/bg.webp";
+import image from "../public/bg.webp";
+import logo from "../public/logo2.png";
+
 const Hero = () => {
 	return (
 		<div
@@ -17,12 +19,7 @@ const Hero = () => {
 				}}
 			>
 				<div className="px-3 d-flex flex-column gap-4 text-white">
-					<MDBTypography
-						tag="div"
-						className="display-1 text-uppercase fw-normal"
-					>
-						Programista HTML
-					</MDBTypography>
+					<img src={logo} alt="logo" className="img-fluid" />
 					<MDBTypography tag="div" className="fs-3 fw-normal">
 						Dowiedz się więcej o frontendzie rezem z nami.
 					</MDBTypography>
