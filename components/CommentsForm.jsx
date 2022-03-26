@@ -115,11 +115,11 @@ const CommentsForm = ({ slug }) => {
 					Wyślij
 				</MDBBtn>
 				{showSuccessMessage && (
-					<span className="ms-2 fw-normal mt-3 text-success fs-6">
+					<span className="text-success fw-normal fs-6">
 						Wysłano do sprawdzenia
 					</span>
 				)}
-				{error && <p className="text-danger mb-0">{error}</p>}
+				{error && <span className="text-danger fw-normal fs-6">{error}</span>}
 			</div>
 		</form>
 	);

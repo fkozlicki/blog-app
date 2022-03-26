@@ -16,7 +16,7 @@ const PostWidget = ({ categories, slug }) => {
 				setRelatedPosts(result);
 			});
 		}
-	}, [slug]);
+	}, [slug, categories]);
 
 	return (
 		<div className="shadow-lg rounded-3 p-4 mb-4 bg-white">
@@ -25,10 +25,15 @@ const PostWidget = ({ categories, slug }) => {
 			</h1>
 			<div className="d-flex flex-column gap-2">
 				{relatedPosts.map((post, index) => (
-					<div key={index} className="d-flex align-items-center w-100 gap-2">
-						<div className="rounded-pill overflow-hidden">
-							<img alt={post.title} width="60" src={post.featuredImage.url} />
-						</div>
+					<div key={index} className="d-flex align-items-center w-100 gap-3">
+						<img
+							alt={post.title}
+							src={post.featuredImage.url}
+							className="img-fluid rounded"
+							width="70"
+							height="70"
+						/>
+
 						<div className="flex-grow-1">
 							<p className="text-dark m-0 fs-6 fw-bold">
 								{moment(post.createdAt).format("MMM DD, YYYY")}

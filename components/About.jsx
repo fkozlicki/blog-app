@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { MDBTypography, MDBContainer, MDBRow, MDBCol } from "mdb-react-ui-kit";
-import aboutImage from "../assets/images/design.webp";
+import aboutImage from "../public/design.webp";
 
 const About = () => {
 	return (
@@ -17,8 +17,8 @@ const About = () => {
 						<MDBCol size="12" md="6" className="mt-3 text-center text-md-start">
 							<MDBTypography variant="p" className="fs-5 m-0 lh-sm">
 								Cześć, jestem Filip i witam Cię na moim blogu. Udostępniam tu
-								wszystko co sam chciałbym wiedzieć, gdy byłem na front-end
-								developera.
+								wszystko co sam chciałbym wiedzieć, gdy zaczynałem naukę
+								front-endu.
 							</MDBTypography>
 						</MDBCol>
 						<MDBCol size="12" md="6" className="position-relative order-first">

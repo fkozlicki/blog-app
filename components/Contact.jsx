@@ -6,7 +6,7 @@ const Contact = () => {
 			<MDBContainer>
 				<div className="d-flex flex-column align-items-center">
 					<MDBTypography tag="h1" className="fs-3 text-white text-center mb-4">
-						Masz jakieś pytania, chcesz dowiedzieć się wiecej? Napisz do nas!
+						Masz jakieś pytania, chcesz dowiedzieć się wiecej? Napisz do mnie!
 					</MDBTypography>
 
 					<MDBBtn

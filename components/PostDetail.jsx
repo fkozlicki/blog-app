@@ -4,8 +4,8 @@ import parse from "html-react-parser";
 
 const PostDetail = ({ post }) => {
 	return (
-		<div className="p-lg-4 pb-4 mb-4 overflow-hidden bg-white shadow-lg rounded">
-			<div className="position-relative overflow-hidden shadow-md mb-2">
+		<div className="p-lg-4 pb-4 mb-4 overflow-hidden bg-white shadow-lg rounded-3">
+			<div className="position-relative overflow-hidden shadow-md mb-2 rounded-3">
 				<img
 					src={post.featuredImage.url}
 					alt={post.title}
