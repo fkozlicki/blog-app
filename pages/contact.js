@@ -1,11 +1,11 @@
 import { Navbar, ContactForm, Meta } from "../components";
 import { MDBContainer, MDBTypography } from "mdb-react-ui-kit";
-import img from "../assets/images/contact.svg";
+import img from "../public/contact.svg";
 
 const contact = () => {
 	return (
 		<>
-			<Meta title="SmartDev - Kontakt" description="Napisz do nas" />
+			<Meta title="Programista HTML - Kontakt" description="Napisz do nas" />
 			<Navbar />
 			<main className="d-flex align-items-center position-relative vh-100 bg-background">
 				<MDBContainer style={{ zIndex: "100" }}>
@@ -13,7 +13,7 @@ const contact = () => {
 						variant="mb-4 mb-md-6"
 						className="display-3 text-center fw-normal text-uppercase"
 					>
-						Napisz do nas!
+						Napisz do mnie!
 					</MDBTypography>
 					<ContactForm />
 				</MDBContainer>

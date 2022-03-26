@@ -27,7 +27,6 @@ const PostDetails = ({ post }) => {
 					<MDBRow>
 						<MDBCol size="12" lg="8">
 							<PostDetail post={post} />
-
 							<Comments slug={post.slug} />
 							<CommentsForm slug={post.slug} />
 						</MDBCol>
