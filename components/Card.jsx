@@ -30,12 +30,12 @@ const Card = ({ img, title, excerpt, author, date, slug }) => {
 					<MDBCardTitle tag="h1" className="fs-5 m-0">
 						{title}
 					</MDBCardTitle>
-					<MDBBadge color="secondary">
+					<MDBBadge color="primary">
 						{moment(date).format("MMM Do YYYY")}
 					</MDBBadge>
 				</div>
 				<MDBCardText>{excerpt}</MDBCardText>
-				<MDBBadge color="secondary" className="align-self-start">
+				<MDBBadge color="primary" className="align-self-start">
 					{author}
 				</MDBBadge>
 				<MDBBtn
