@@ -12,7 +12,7 @@ const PostCard = ({ post }) => {
 				/>
 			</div>
 			<div className="text-center">
-				<a href={`/post/${post.slug}`} className="fs-2">
+				<a href={`/post/${post.slug}`} className="fs-2 my-link">
 					{post.title}
 				</a>
 			</div>
@@ -21,17 +21,17 @@ const PostCard = ({ post }) => {
 					<img
 						src={post.author.photo.url}
 						alt={post.author.name}
-						height="25px"
-						width="25px"
+						height="22px"
+						width="22px"
 						className="align-middle"
 					/>
-					<p className="m-0 fs-5">{post.author.name}</p>
+					<span className="m-0">{post.author.name}</span>
 				</div>
 				<div className="d-flex align-items-center justify-content-center">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
-						height="24px"
-						width="24px"
+						height="22px"
+						width="22px"
 						className="d-inline mr-2"
 						fill="none"
 						viewBox="0 0 24 24"
@@ -44,7 +44,7 @@ const PostCard = ({ post }) => {
 							d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
 						/>
 					</svg>
-					<span className="fs-5 ms-1">
+					<span className="ms-1">
 						{moment(post.createdAt).format("MMM DD, YYYY")}
 					</span>
 				</div>
