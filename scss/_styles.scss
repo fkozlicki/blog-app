@@ -1,20 +1,31 @@
-// Your custom styles
-$secondary: #4255b3;
-
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap");
+// My custom styles
+$primary: #16323b;
+$secondary: #dfdfdf;
+
 body {
-	font-family: Roboto, Helvetica, Arial, sans-serif !important;
+	font-family: Cabin, sans-serif !important;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+p {
+	font-family: Roboto, sans-serif !important;
 }
 
 .navbar {
-	background: #2f3c7e;
+	background: $primary;
 	transition: background 250ms;
 	@media (min-width: 768px) {
 		background: transparent;
 	}
 }
 .primary {
-	background: #2f3c7e;
+	background: $primary;
 }
 .menuBtn {
 	outline: none;
@@ -51,11 +62,12 @@ body {
 }
 
 .my-link {
+	font-family: Roboto, sans-serif !important;
 	color: #4f4f4f !important;
 	font-weight: 400;
 	transition: color 300ms ease-out;
 	&:hover {
-		color: $secondary !important;
+		color: #000 !important;
 	}
 }
 pre {
