@@ -6,13 +6,14 @@ const About = () => {
 	return (
 		<>
 			<section className="py-5">
-				<MDBTypography
-					tag="h1"
-					className="display-4 text-uppercase text-center mb-4"
-				>
-					O mnie
-				</MDBTypography>
 				<MDBContainer>
+					<MDBTypography
+						tag="h1"
+						className="display-6 text-uppercase text-center mb-4 border-1 border-primary"
+					>
+						O mnie
+					</MDBTypography>
+
 					<MDBRow className="gap-4 gap-md-0 align-items-center">
 						<MDBCol size="12" md="6" className="mt-3 text-center text-md-start">
 							<MDBTypography variant="p" className="fs-5 m-0 lh-sm">
@@ -21,8 +22,17 @@ const About = () => {
 								front-endu.
 							</MDBTypography>
 						</MDBCol>
-						<MDBCol size="12" md="6" className="position-relative order-first">
-							<img src={aboutImage} alt="design" className="img-fluid" />
+						<MDBCol
+							size="12"
+							md="6"
+							className="position-relative order-first d-flex justify-content-center"
+						>
+							<img
+								width="300"
+								src={aboutImage}
+								alt="design"
+								className="img-fluid"
+							/>
 						</MDBCol>
 					</MDBRow>
 				</MDBContainer>
