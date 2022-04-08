@@ -8,7 +8,8 @@ import {
 	MDBNavbarLink,
 	MDBCollapse,
 } from "mdb-react-ui-kit";
-import logo from "../public/logo2.png";
+import logo from "../public/light1.svg";
+import logo2 from "../public/dark1.svg";
 
 const Navbar = () => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -53,13 +54,13 @@ const Navbar = () => {
 				data-mdb-toggle="animation"
 				data-mdb-animation-reset="true"
 				className={`navbar ${navbarColor} fixed-top py-md-3`}
-				dark
 				expand="md"
+				dark
 			>
 				<MDBContainer>
 					<MDBNavbarBrand href="/" className="text-white">
 						<div>
-							<img src={logo} alt="logo" width="150" className="img-fluid" />
+							<img src={logo} alt="logo" width="200" className="img-fluid" />
 						</div>
 					</MDBNavbarBrand>
 					<button
