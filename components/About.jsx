@@ -9,7 +9,7 @@ const About = () => {
 				<MDBContainer>
 					<MDBTypography
 						tag="h1"
-						className="display-6 text-uppercase text-center mb-4 border-1 border-primary"
+						className="display-6 text-uppercase text-center mb-4 pb-2 border-bottom"
 					>
 						O mnie
 					</MDBTypography>
