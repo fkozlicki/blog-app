@@ -32,6 +32,5 @@ export async function getStaticProps({ req, res }) {
 
 	return {
 		props: { posts },
-		revalidate: 30,
 	};
 }
