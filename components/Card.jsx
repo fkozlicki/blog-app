@@ -6,7 +6,6 @@ import {
 	MDBCardImage,
 	MDBBtn,
 	MDBRipple,
-	MDBTypography,
 	MDBBadge,
 } from "mdb-react-ui-kit";
 import moment from "moment";
@@ -19,19 +18,21 @@ const Card = ({ img, title, excerpt, author, date, slug }) => {
 				rippleTag="div"
 				className="bg-image hover-overlay d-flex align-items-center"
 			>
-				<MDBCardImage src={img} fluid alt={title} />
-				<div
-					className="mask"
-					style={{ backgroundColor: "rgba(251, 251, 251, 0.15)" }}
-				></div>
+				<div className="overflow-hidden" style={{ height: "200px" }}>
+					<MDBCardImage src={img} fluid alt={title} />
+					<div
+						className="mask"
+						style={{ backgroundColor: "rgba(251, 251, 251, 0.15)" }}
+					></div>
+				</div>
 			</MDBRipple>
-			<MDBCardBody className="d-flex flex-column">
+			<MDBCardBody className="d-flex flex-column gap-2">
 				<div className="d-flex align-items-center justify-content-between mb-2">
 					<MDBCardTitle tag="h1" className="fs-5 m-0">
 						{title}
 					</MDBCardTitle>
 					<MDBBadge color="primary">
-						{moment(date).format("MMM Do YYYY")}
+						{moment(date).format("DD MMM YYYY")}
 					</MDBBadge>
 				</div>
 				<MDBCardText>{excerpt}</MDBCardText>
