@@ -5,7 +5,7 @@ import parse from "html-react-parser";
 const PostDetail = ({ post }) => {
 	return (
 		<div className="p-lg-4 pb-4 mb-4 overflow-hidden bg-white shadow-lg rounded-3">
-			<div className="position-relative overflow-hidden shadow-md mb-2 rounded-3">
+			<div className="position-relative overflow-hidden shadow-md mb-3 rounded-3">
 				<img
 					src={post.featuredImage.url}
 					alt={post.title}
@@ -44,11 +44,11 @@ const PostDetail = ({ post }) => {
 							/>
 						</svg>
 						<span className="text-dark m-0 fs-6">
-							{moment(post.createdAt).format("MMM DD, YYYY")}
+							{moment(post.createdAt).format("DD MMM YYYY")}
 						</span>
 					</div>
 				</div>
-				<h1 className="mb-2 display-5 fw-normal">{post.title}</h1>
+				<h1 className="mb-5 display-5 fw-normal">{post.title}</h1>
 
 				<div className="d-flex align-items-start flex-column gap-3">
 					{parse(post.content.html)}
