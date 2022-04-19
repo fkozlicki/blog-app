@@ -32,7 +32,7 @@ const Comments = ({ slug }) => {
 									{comment.name}
 								</MDBTypography>
 								<MDBBadge style={{ fontSize: "12px" }}>
-									{moment(comment.createdAt).format("MMM DD, YYYY")}
+									{moment(comment.createdAt).format("DD MMM YYYY")}
 								</MDBBadge>
 							</div>
 							<p className="text-gray mb-0 mt-2 fs-5">
