@@ -12,7 +12,7 @@ import moment from "moment";
 
 const Card = ({ img, title, excerpt, author, date, slug }) => {
 	return (
-		<MDBCard style={{ maxWidth: "22rem" }} className="m-auto shadow-4-strong">
+		<MDBCard style={{ maxWidth: "26rem" }} className="m-auto shadow-4-strong">
 			<MDBRipple
 				rippleColor="light"
 				rippleTag="div"
@@ -43,7 +43,7 @@ const Card = ({ img, title, excerpt, author, date, slug }) => {
 					rounded
 					outline
 					href={`/post/${slug}`}
-					className="align-self-end"
+					className="align-self-end scale"
 				>
 					Czytaj dalej
 				</MDBBtn>
