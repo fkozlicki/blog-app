@@ -8,15 +8,23 @@ const Categories = () => {
 
 	useEffect(() => {
 		getCategories().then((newCategories) => setCategories(newCategories));
-	});
+	}, [categories]);
 
 	return (
-		<div className="shadow rounded p-4 pb-12 mb-4 d-flex flex-column bg-white">
-			<h1 className="fs-3 border-bottom border-gray pb-2">Kategorie</h1>
-			<div className="d-flex flex-column">
+		<div className="d-flex flex-column ">
+			<h1
+				className="fs-5 text-uppercase mb-6 text-center text-md-start"
+				stle={{ fontWeight: 500 }}
+			>
+				Kategorie
+			</h1>
+
+			<div className="d-flex flex-wrap">
 				{categories.map((category) => (
 					<Link key={category.slug} href={`/category/${category.slug}`}>
-						<a className="my-link fs-6">{category.name}</a>
+						<a className="bg-primary me-2 mb-2 text-black category-badge">
+							{category.name}
+						</a>
 					</Link>
 				))}
 			</div>
