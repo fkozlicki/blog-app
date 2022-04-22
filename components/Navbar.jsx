@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
 	MDBContainer,
 	MDBNavbar,
@@ -8,13 +9,10 @@ import {
 	MDBNavbarLink,
 	MDBCollapse,
 } from "mdb-react-ui-kit";
-import logo from "../public/light1.svg";
-import logo2 from "../public/dark1.svg";
 
 const Navbar = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [active, setActive] = useState(false);
-	const [navbarColor, setNavbarColor] = useState("transparent");
 
 	const toggleCollapse = () => {
 		setIsOpen(!isOpen);
@@ -29,39 +27,23 @@ const Navbar = () => {
 		toggleActive();
 	};
 
-	const changeBg = () => {
-		if (window.scrollY >= 10) setNavbarColor("primary");
-		else setNavbarColor("transparent");
-	};
-
-	if (
-		typeof window !== "undefined" &&
-		window.location.href === `${window.location.origin}/`
-	) {
-		window.addEventListener("scroll", changeBg);
-	}
-
-	useEffect(() => {
-		if (window.location.href !== `${window.location.origin}/`)
-			setNavbarColor("primary");
-		else setNavbarColor("transparent");
-	}, []);
-
 	return (
 		<>
 			<MDBNavbar
 				data-mdb-animation="fade-in"
 				data-mdb-toggle="animation"
 				data-mdb-animation-reset="true"
-				className={`navbar ${navbarColor} fixed-top py-md-3`}
+				className={`fixed-top bg-primary shadow-none `}
 				expand="md"
-				dark
+				light
 			>
 				<MDBContainer>
-					<MDBNavbarBrand href="/" className="text-white">
-						<div>
-							<img src={logo} alt="logo" width="200" className="img-fluid" />
-						</div>
+					<MDBNavbarBrand tag="div" className="text-white brand-size">
+						<Link href="/">
+							<a className="d-flex ">
+								<Image src="/fk.svg" width={230} height={100} alt="fk logo" />
+							</a>
+						</Link>
 					</MDBNavbarBrand>
 					<button
 						className="menuBtn navbar-toggler"
