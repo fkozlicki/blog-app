@@ -1,8 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap");
 // My custom styles
-$primary: #16323b;
-$secondary: #dfdfdf;
 
 body {
 	font-family: Cabin, sans-serif !important;
@@ -13,20 +11,52 @@ img {
 	height: auto;
 }
 
-p {
+p,
+button {
 	font-family: Roboto, sans-serif !important;
 }
 
 .navbar {
-	background: $primary;
-	transition: background 250ms;
 	@media (min-width: 768px) {
-		background: transparent;
+		position: static !important;
 	}
 }
-.primary {
-	background: $primary;
+.brand-size {
+	width: 85px;
+	@media (min-width: 768px) {
+		width: 115px;
+	}
 }
+
+.hero-height {
+	height: 250px;
+	@media (min-width: 768px) {
+		height: 500px;
+	}
+}
+.hero-bg {
+	position: relative;
+	background: rgb(173, 194, 168);
+	background: linear-gradient(
+		0deg,
+		rgba(173, 194, 168, 0.6) 0%,
+		rgba(173, 194, 168, 1) 70%
+	);
+
+	&::before {
+		content: "";
+		height: 50%;
+		width: 100%;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		background: url("../public/wave.svg");
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: bottom center;
+	}
+}
+
 .menuBtn {
 	outline: none;
 	background: none;
@@ -36,11 +66,29 @@ p {
 	}
 }
 
+.category-badge {
+	font-size: 14px;
+	padding: 3px 12px;
+	border-radius: 0.5rem;
+
+	&:hover {
+		background: darken(rgba(173, 194, 168, 1), 20%);
+		transform: scale(1.1);
+		transition: 0.3s ease-in-out;
+	}
+}
+.scale {
+	&:hover {
+		transform: scale(1.1);
+		transition: 0.3s ease-in-out;
+	}
+}
+
 .hamburger .line {
 	width: 25px;
 	height: 3px;
 	border-radius: 3px;
-	background-color: #fff;
+	background-color: #000000;
 	display: block;
 	margin: 5px auto;
 	transition: all 0.3s ease-in-out;
@@ -61,15 +109,39 @@ p {
 	transform: translateY(-9px) rotate(-45deg);
 }
 
-.my-link {
+.input-box {
 	font-family: Roboto, sans-serif !important;
-	color: #4f4f4f !important;
-	font-weight: 400;
-	transition: color 300ms ease-out;
-	&:hover {
-		color: #000 !important;
+}
+.input-box {
+	label {
+		font-weight: 500;
 	}
 }
+.input-box {
+	.input {
+		border: none;
+		outline: none;
+		padding: 0.5rem 0;
+	}
+}
+.input-border {
+	height: 3px;
+	background: #777777;
+	border-radius: 5rem;
+}
+.input-box {
+	.input:focus ~ .label {
+		color: #adc2a9;
+		transition: all 0.3s ease-in-out;
+	}
+
+	.input:focus ~ .input-border {
+		background: #adc2a9;
+		transform: translateY(10px);
+		transition: all 0.3s ease-in-out;
+	}
+}
+
 pre {
 	font-size: 0.85rem;
 	background: #f8f9fb;
