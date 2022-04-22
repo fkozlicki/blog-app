@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { MDBContainer, MDBRow, MDBCol, MDBTypography } from "mdb-react-ui-kit";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faGlobe } from "@fortawesome/free-solid-svg-icons";
@@ -6,40 +7,57 @@ import logo from "../public/dark1.svg";
 
 const Footer = () => {
 	return (
-		<footer className="pt-5 pb-2 bg-background">
+		<footer className="bg-primary py-5">
 			<MDBContainer>
-				<MDBRow className="gy-4 gy-md-6">
-					<MDBCol size="12">
-						<a
-							href="#header"
-							className="my-link display-4 d-block fw-normal text-center m-0"
-						>
-							<img src={logo} alt="logo" className="img-fluid" width="400" />
-						</a>
+				<MDBRow center md="between" className="gy-4">
+					<MDBCol size={12} md={4} className="text-center">
+						<MDBRow start className="text-md-start">
+							<MDBCol size={12}>
+								<Link href="/">
+									<a>
+										<Image src="/fk.svg" width={90} height={50} />
+									</a>
+								</Link>
+							</MDBCol>
+							<MDBCol size={12} className="d-none d-md-block">
+								<span>copy</span>
+							</MDBCol>
+						</MDBRow>
 					</MDBCol>
-					<MDBCol size="12" md="6" className="text-center ">
-						<p className="m-0 fs-6 ">
-							<FontAwesomeIcon icon={faEnvelope} width="16" className="me-2" />
-							filip.kozlickii@gmail.com
-						</p>
-						<a href="#!" className="my-link m-0 fs-6">
-							<FontAwesomeIcon icon={faGlobe} width="16" className="me-2" />
-							www.kozlicki.com
-						</a>
+					<MDBCol size={12} md={8}>
+						<div className="d-flex flex-column flex-md-row justify-content-end">
+							<MDBRow className="text-center">
+								<MDBCol>
+									<ul className="list-group list-group-light">
+										<li className="">
+											<a href="#!">section</a>
+										</li>
+										<li>
+											<a href="#!">section</a>
+										</li>
+										<li>
+											<a href="#!">section</a>
+										</li>
+									</ul>
+								</MDBCol>
+								<MDBCol>
+									<ul className="list-group list-group-light">
+										<li>
+											<a href="github">a</a>
+										</li>
+										<li>
+											<a href="twitter">a</a>
+										</li>
+										<li>
+											<a href="linked">a</a>
+										</li>
+									</ul>
+								</MDBCol>
+							</MDBRow>
+						</div>
 					</MDBCol>
-					<MDBCol size="12" md="6" className="text-center ">
-						<Link href="/contact">
-							<a className="my-link d-block">Kontakt</a>
-						</Link>
-						<Link href="/blog">
-							<a className="my-link d-block">Blog</a>
-						</Link>
-					</MDBCol>
-					<MDBCol>
-						<MDBTypography className="text-center m-0">
-							<small>@copyright All rights reserved.</small>
-						</MDBTypography>
-					</MDBCol>
+
+					<MDBCol className="d-md-none text-center">copy</MDBCol>
 				</MDBRow>
 			</MDBContainer>
 		</footer>
