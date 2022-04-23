@@ -21,16 +21,16 @@ const PostDetails = ({ post }) => {
 	return (
 		<>
 			<Meta title={post.title} />
-			<Navbar />
-			<main className="pt-6 pt-md-7 bg-background">
+
+			<div className="pt-7 pt-md-7 pb-5">
 				<MDBContainer>
-					<MDBRow>
-						<MDBCol size="12" lg="8">
+					<MDBRow between>
+						<MDBCol size="12" lg={8}>
 							<PostDetail post={post} />
 							<Comments slug={post.slug} />
 							<CommentsForm slug={post.slug} />
 						</MDBCol>
-						<MDBCol size="12" lg="4">
+						<MDBCol size="12" lg={3}>
 							<PostWidget
 								slug={post.slug}
 								categories={post.categories.map((category) => category.slug)}
@@ -39,7 +39,7 @@ const PostDetails = ({ post }) => {
 						</MDBCol>
 					</MDBRow>
 				</MDBContainer>
-			</main>
+			</div>
 		</>
 	);
 };
