@@ -3,27 +3,24 @@ import {
 	MDBCardBody,
 	MDBCardTitle,
 	MDBCardText,
-	MDBCardImage,
 	MDBBtn,
 	MDBRipple,
 	MDBBadge,
 } from "mdb-react-ui-kit";
+import Link from "next/link";
+import Image from "next/image";
 import moment from "moment";
 
 const Card = ({ img, title, excerpt, author, date, slug }) => {
 	return (
-		<MDBCard style={{ maxWidth: "26rem" }} className="m-auto shadow-4-strong">
+		<MDBCard style={{ maxWidth: "26rem" }} className="m-auto shadow">
 			<MDBRipple
 				rippleColor="light"
 				rippleTag="div"
 				className="bg-image hover-overlay d-flex align-items-center"
 			>
 				<div className="overflow-hidden" style={{ height: "200px" }}>
-					<MDBCardImage src={img} fluid alt={title} />
-					<div
-						className="mask"
-						style={{ backgroundColor: "rgba(251, 251, 251, 0.15)" }}
-					></div>
+					<Image src={img} alt={title} width={1600} height={900} />
 				</div>
 			</MDBRipple>
 			<MDBCardBody className="d-flex flex-column gap-2">
@@ -39,14 +36,12 @@ const Card = ({ img, title, excerpt, author, date, slug }) => {
 				<MDBBadge color="primary" className="align-self-start">
 					{author}
 				</MDBBadge>
-				<MDBBtn
-					rounded
-					outline
-					href={`/post/${slug}`}
-					className="align-self-end scale"
-				>
-					Czytaj dalej
-				</MDBBtn>
+
+				<Link href={`/post/${slug}`} passHref>
+					<MDBBtn tag="a" rounded outline className="align-self-end scale">
+						Czytaj dalej
+					</MDBBtn>
+				</Link>
 			</MDBCardBody>
 		</MDBCard>
 	);
