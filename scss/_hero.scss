@@ -1,0 +1,26 @@
+@use "./variables" as v;
+
+.hero-height {
+	height: 200px;
+	@media (min-width: 768px) {
+		height: 400px;
+	}
+}
+.hero-bg {
+	position: relative;
+	background: v.$primary;
+	background: linear-gradient(0deg, rgba(v.$primary, 0.6) 0%, v.$primary 70%);
+
+	&::before {
+		content: "";
+		height: 50%;
+		width: 100%;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		background: url("/wave.svg");
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: bottom center;
+	}
+}

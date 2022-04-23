@@ -1,0 +1,80 @@
+@use "./variables" as v;
+
+body {
+	font-family: Cabin, sans-serif !important;
+}
+p,
+button {
+	font-family: Roboto, sans-serif !important;
+}
+ul {
+	list-style: none;
+}
+
+.link {
+	color: v.$gray;
+	transition: color 0.1s ease-in-out;
+	&:hover {
+		color: #0e0d0d;
+	}
+}
+
+.scale {
+	&:hover {
+		transform: scale(1.1);
+		transition: 0.3s ease-in-out;
+	}
+}
+// Custom input
+.input-box {
+	font-family: Roboto, sans-serif !important;
+}
+.input-box {
+	label {
+		font-weight: 500;
+	}
+}
+.input-box {
+	.input {
+		border: none;
+		outline: none;
+		padding: 0.5rem 0;
+	}
+}
+.input-border {
+	height: 3px;
+	background: #777;
+	border-radius: 5rem;
+}
+.input-box {
+	.input:focus ~ .label {
+		color: v.$primary;
+		transition: all 0.3s ease-in-out;
+	}
+
+	.input:focus ~ .input-border {
+		background: v.$primary;
+		transform: translateY(10px);
+		transition: all 0.3s ease-in-out;
+	}
+}
+// copy
+.copy {
+	font-size: 14px;
+	color: v.$gray;
+	font-family: Cabin, sans-serif !important;
+}
+// post details
+pre {
+	font-size: 0.85rem;
+	background: v.$light;
+	padding: 8px;
+	border: 1px solid darken(v.$light, 10%);
+	border-radius: 4px;
+	font-family: SourceCode Pro, monospace;
+}
+blockquote {
+	padding-left: 10px;
+	border-left: 2px solid darken(v.$light, 7%);
+	font-size: 15px;
+}
