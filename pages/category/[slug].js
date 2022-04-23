@@ -1,23 +1,18 @@
-import React from "react";
-
 import { getCategories, getCategoryPost } from "../../services";
-import { Navbar, Card, Categories, Meta } from "../../components";
+import { Navbar, Card, Categories, Meta, Footer } from "../../components";
 import { MDBContainer, MDBCol, MDBRow } from "mdb-react-ui-kit";
 
-const CategoryPosts = ({ posts }) => {
+const CategoryPosts = ({ posts, category }) => {
 	return (
 		<>
-			<Meta title="SmartDev" />
-			<Navbar />
-			<main className="pt-7 pt-md-5 pb-4 min-vh-100">
+			<Meta title={category.name} />
+
+			<section className="pt-6 pt-md-5 pb-6">
 				<MDBContainer>
 					<MDBRow between className="gy-5">
 						<MDBCol size={12} md={8}>
-							<h1
-								className="fs-5 text-uppercase text-secondary mb-6 text-center text-md-start"
-								stle={{ fontWeight: 500 }}
-							>
-								Ostatnie posty
+							<h1 className="fs-3 mb-4 font-semibold border-bottom border-1 border-gray pb-2">
+								{category.name}
 							</h1>
 							<MDBRow>
 								{posts.map((post, i) => (
@@ -39,7 +34,7 @@ const CategoryPosts = ({ posts }) => {
 						</MDBCol>
 					</MDBRow>
 				</MDBContainer>
-			</main>
+			</section>
 		</>
 	);
 };
@@ -48,9 +43,11 @@ export default CategoryPosts;
 // Fetch data at build time
 export async function getStaticProps({ params }) {
 	const posts = await getCategoryPost(params.slug);
+	const categories = await getCategories();
+	const category = categories.find((category) => category.slug === params.slug);
 
 	return {
-		props: { posts },
+		props: { posts, category },
 	};
 }
 
