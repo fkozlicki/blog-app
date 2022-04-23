@@ -1,16 +1,18 @@
-import "mdb-react-ui-kit/dist/scss/mdb.free.scss";
+// styles
+// import "mdb-react-ui-kit/dist/scss/mdb.free.scss";
 import "../scss/main.scss";
-
-import "@fortawesome/fontawesome-svg-core";
-import "@fortawesome/free-regular-svg-icons";
-import "@fortawesome/free-solid-svg-icons";
-
+// moment settings
 import moment from "moment";
 import "moment/locale/pl";
 moment.locale("pl");
+import { Layout } from "../components";
 
 function MyApp({ Component, pageProps }) {
-	return <Component {...pageProps} />;
+	return (
+		<Layout>
+			<Component {...pageProps} />
+		</Layout>
+	);
 }
 
 export default MyApp;
