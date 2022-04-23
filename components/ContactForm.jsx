@@ -1,18 +1,7 @@
-import {
-	MDBInput,
-	MDBRow,
-	MDBCol,
-	MDBBtn,
-	MDBTypography,
-} from "mdb-react-ui-kit";
-import {
-	faEnvelope,
-	faUser,
-	faMessage,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { MDBRow, MDBCol, MDBBtn } from "mdb-react-ui-kit";
 import { useRef, useState } from "react";
 import emailjs from "emailjs-com";
+import { isEmail } from "../services";
 
 const ContactForm = () => {
 	const [showSuccessMessage, setShowSuccessMessage] = useState("");
@@ -21,12 +10,6 @@ const ContactForm = () => {
 	const nameRef = useRef();
 	const emailRef = useRef();
 	const messageRef = useRef();
-
-	const isEmail = (email) => {
-		return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
-			email
-		);
-	};
 
 	const sendEmail = (e) => {
 		e.preventDefault();
@@ -68,12 +51,9 @@ const ContactForm = () => {
 	};
 
 	return (
-		<>
-			<h1
-				className="fs-5 text-uppercase mb-6 text-center text-md-start"
-				stle={{ fontWeight: 500 }}
-			>
-				Recent posts
+		<section>
+			<h1 className="fs-3 mb-4 font-semibold border-bottom border-1 border-gray pb-2">
+				Kontakt
 			</h1>
 			<form
 				ref={formRef}
@@ -136,7 +116,7 @@ const ContactForm = () => {
 					</MDBCol>
 				</MDBRow>
 			</form>
-		</>
+		</section>
 	);
 };
 

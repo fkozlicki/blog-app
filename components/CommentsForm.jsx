@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from "react";
-import { MDBBtn, MDBInput, MDBCheckbox, MDBTypography } from "mdb-react-ui-kit";
+import { useState, useEffect, useRef } from "react";
+import { MDBBtn, MDBRow, MDBCol } from "mdb-react-ui-kit";
+import CustomInput from "./CustomInput";
 
-import { submitComment } from "../services";
+import { submitComment, isEmail } from "../services";
 
 const CommentsForm = ({ slug }) => {
 	const [error, setError] = useState("");
-	const [localStorage, setLocalStorage] = useState(null);
 	const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-	const [commentEl, setCommentEl] = useState("");
-	const [nameEl, setNameEl] = useState("");
-	const [emailEl, setEmailEl] = useState("");
-	const [storeData, setStoreData] = useState(false);
+	const nameRef = useRef();
+	const commentRef = useRef();
+	const emailRef = useRef();
+	const storeDataRef = useRef();
 
 	useEffect(() => {
 		if (
@@ -22,41 +22,41 @@ const CommentsForm = ({ slug }) => {
 		}
 	}, []);
 
-	const isEmail = (email) => {
-		return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
-			email
-		);
-	};
-
 	const handleCommentSubmit = () => {
 		setError(false);
 
-		if (!commentEl || !nameEl || !emailEl) {
+		const { value: nameValue } = nameRef.current;
+		const { value: emailValue } = emailRef.current;
+		const { value: commentValue } = commentRef.current;
+		const { checked: storeDataValue } = storeDataRef.current;
+		console.log(storeDataValue);
+
+		if (!commentValue || !nameValue || !emailValue) {
 			setError("Wszystkie pola są wymagane");
 			return;
-		} else if (!isEmail(emailEl)) {
+		} else if (!isEmail(emailValue)) {
 			setError("Niepoprawny adres email");
 			return;
 		}
 
 		const commentObj = {
-			name: nameEl,
-			email: emailEl,
-			comment: commentEl,
+			name: nameValue,
+			email: emailValue,
+			comment: commentValue,
 			slug,
 		};
 
-		if (storeData) {
-			window.localStorage.setItem("name", nameEl);
-			window.localStorage.setItem("email", emailEl);
+		if (storeDataValue) {
+			window.localStorage.setItem("name", nameValue);
+			window.localStorage.setItem("email", emailValue);
 		} else {
-			window.localStorage.removeItem("name", nameEl);
-			window.localStorage.removeItem("email", emailEl);
+			window.localStorage.removeItem("name", nameValue);
+			window.localStorage.removeItem("email", emailValue);
 		}
 
-		setCommentEl("");
-		setNameEl("");
-		setEmailEl("");
+		nameRef.current.value = "";
+		emailRef.current.value = "";
+		commentRef.current.value = "";
 
 		submitComment(commentObj).then((res) => {
 			setShowSuccessMessage(true);
@@ -67,61 +67,61 @@ const CommentsForm = ({ slug }) => {
 	};
 
 	return (
-		<form className="shadow-lg rounded p-4 mb-4 bg-white">
-			<MDBTypography
-				tag="h1"
-				className="fs-3 fw-bolder mb-2 border-bottom border-color-gray pb-2 px-0"
-			>
+		<section>
+			<h1 className="fs-3 mb-4 font-semibold border-bottom border-1 border-gray pb-2">
 				Zostaw komentarz
-			</MDBTypography>
-			<div className="d-flex flex-column gap-3 mt-4">
-				<MDBInput
-					label="Komentarz"
-					id="comment"
-					size="lg"
-					name="comment"
-					value={commentEl}
-					onChange={(e) => setCommentEl(e.target.value)}
-					textarea
-					rows="3"
-				/>
-				<MDBInput
-					label="Imię"
-					id="name"
-					type="text"
-					size="lg"
-					name="name"
-					value={nameEl}
-					onChange={(e) => setNameEl(e.target.value)}
-				/>
-				<MDBInput
-					label="Email"
-					id="email"
-					type="email"
-					name="email"
-					size="lg"
-					value={emailEl}
-					onChange={(e) => setEmailEl(e.target.value)}
-				/>
-				<MDBCheckbox
-					value={storeData}
-					onChange={(e) => setStoreData(e.target.value)}
-					label="Zapisz email i imię"
-					id="storeData"
-				/>
-			</div>
-			<div className="mt-3 d-flex align-items-center gap-4">
-				<MDBBtn tag="button" type="button" onClick={handleCommentSubmit}>
-					Wyślij
-				</MDBBtn>
-				{showSuccessMessage && (
-					<span className="text-success fw-normal fs-6">
-						Wysłano do sprawdzenia
-					</span>
-				)}
-				{error && <span className="text-danger fw-normal fs-6">{error}</span>}
-			</div>
-		</form>
+			</h1>
+			<form className="mb-5">
+				<MDBRow className="gy-4">
+					<MDBCol size="12" md="6">
+						<CustomInput
+							inputRef={nameRef}
+							type="text"
+							name="from_name"
+							id="name"
+							label="Imię"
+						/>
+					</MDBCol>
+					<MDBCol size="12" md="6">
+						<CustomInput
+							inputRef={emailRef}
+							type="email"
+							name="user_email"
+							id="email"
+							label="Email"
+						/>
+					</MDBCol>
+					<MDBCol size="12">
+						<CustomInput
+							inputRef={commentRef}
+							textarea
+							name="message"
+							id="message"
+							label="Wiadomość"
+						/>
+					</MDBCol>
+					<MDBCol>
+						<input type="checkbox" ref={storeDataRef} id="storeData" />
+						<label htmlFor="storeData" className="ms-3">
+							Zapisz email i imię
+						</label>
+					</MDBCol>
+					<div className="mt-3 d-flex align-items-center gap-4">
+						<MDBBtn tag="button" type="button" onClick={handleCommentSubmit}>
+							Wyślij
+						</MDBBtn>
+						{showSuccessMessage && (
+							<span className="text-success fw-normal fs-6">
+								Wysłano do sprawdzenia
+							</span>
+						)}
+						{error && (
+							<span className="text-danger fw-normal fs-6">{error}</span>
+						)}
+					</div>
+				</MDBRow>
+			</form>
+		</section>
 	);
 };
 
