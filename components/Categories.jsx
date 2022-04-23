@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 
 import { getCategories } from "../services";
@@ -7,15 +7,18 @@ const Categories = () => {
 	const [categories, setCategories] = useState([]);
 
 	useEffect(() => {
+		let abortController = new AbortController();
+
 		getCategories().then((newCategories) => setCategories(newCategories));
-	}, [categories]);
+
+		return () => {
+			abortController.abort();
+		};
+	}, []);
 
 	return (
-		<div className="d-flex flex-column ">
-			<h1
-				className="fs-5 text-uppercase mb-6 text-center text-md-start"
-				stle={{ fontWeight: 500 }}
-			>
+		<section className="d-flex flex-column ">
+			<h1 className="fs-3 mb-4 font-semibold border-bottom border-1 border-gray pb-2">
 				Kategorie
 			</h1>
 
@@ -28,7 +31,7 @@ const Categories = () => {
 					</Link>
 				))}
 			</div>
-		</div>
+		</section>
 	);
 };
 
