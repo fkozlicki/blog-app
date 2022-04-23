@@ -3,12 +3,9 @@ import Card from "./Card";
 
 const Recent = ({ posts }) => {
 	return (
-		<>
-			<h1
-				className="fs-5 text-uppercase text-secondary mb-6 text-center text-md-start"
-				stle={{ fontWeight: 500 }}
-			>
-				Ostatnie posty
+		<section>
+			<h1 className="fs-3 mb-4 font-semibold border-bottom border-1 border-gray pb-2">
+				Ostatnie Posty
 			</h1>
 			<MDBRow className="gy-4">
 				{posts.map((post, i) => (
@@ -24,7 +21,7 @@ const Recent = ({ posts }) => {
 					</MDBCol>
 				))}
 			</MDBRow>
-		</>
+		</section>
 	);
 };
 
