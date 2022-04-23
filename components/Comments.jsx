@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import moment from "moment";
 import parse from "html-react-parser";
-import { MDBBadge, MDBTypography } from "mdb-react-ui-kit";
+import { MDBBadge } from "mdb-react-ui-kit";
 
 import { getComments } from "../services";
 
@@ -9,38 +9,34 @@ const Comments = ({ slug }) => {
 	const [comments, setComments] = useState([]);
 
 	useEffect(() => {
+		let abortController = new AbortController();
 		getComments(slug).then((result) => setComments(result));
-	});
+		return () => {
+			abortController.abort();
+		};
+	}, [slug]);
 
 	return (
 		<>
 			{comments.length > 0 && (
-				<div className="bg-white shadow-lg rounded-3 p-4 mb-4">
-					<MDBTypography
-						tag="h1"
-						className="fs-3 fw-bolder border-bottom border-color-gray pb-2 mb-3"
-					>
+				<section className="mb-5">
+					<h1 className="fs-3 mb-4 font-semibold border-bottom border-1 border-gray pb-2">
 						Komentarze
-					</MDBTypography>
+					</h1>
 					{comments.map((comment) => (
-						<div
-							key={comment.createdAt}
-							className="border-bottom border-color-gray mb-2 pb-2 "
-						>
+						<article key={comment.createdAt} className="mb-2 p-3 shadow">
 							<div className="d-flex align-items-center gap-2">
-								<MDBTypography tag="h1" className="fs-4 m-0">
-									{comment.name}
-								</MDBTypography>
+								<h1 className="fs-5 m-0">{comment.name}</h1>
 								<MDBBadge style={{ fontSize: "12px" }}>
 									{moment(comment.createdAt).format("DD MMM YYYY")}
 								</MDBBadge>
 							</div>
-							<p className="text-gray mb-0 mt-2 fs-5">
+							<p className="text-gray mb-0 mt-2 fs-6">
 								{parse(comment.comment)}
 							</p>
-						</div>
+						</article>
 					))}
-				</div>
+				</section>
 			)}
 		</>
 	);
