@@ -1,25 +1,27 @@
-import React from "react";
+import Image from "next/image";
 import moment from "moment";
 import parse from "html-react-parser";
 
 const PostDetail = ({ post }) => {
 	return (
-		<div className="p-lg-4 pb-4 mb-4 overflow-hidden bg-white shadow-lg rounded-3">
-			<div className="position-relative overflow-hidden shadow-md mb-3 rounded-3">
-				<img
+		<section className="p-lg-3 mb-5 overflow-hidden bg-white shadow rounded-3">
+			<div className="position-relative overflow-hidden mb-3">
+				<Image
 					src={post.featuredImage.url}
 					alt={post.title}
-					className="h-auto w-100"
+					width={1600}
+					height={900}
+					className="rounded"
 				/>
 			</div>
 			<div className="px-3 px-lg-1">
 				<div className="d-flex align-items-center mb-2 w-100">
 					<div className="d-flex align-items-center mb-0 w-auto me-1">
-						<img
+						<Image
 							src={post.author.photo.url}
 							alt={post.author.name}
-							height="25px"
-							width="25px"
+							height={25}
+							width={25}
 							className="align-middle"
 						/>
 						<p className="d-inline align-middle m-0 fs-6 mx-1">
@@ -54,7 +56,7 @@ const PostDetail = ({ post }) => {
 					{parse(post.content.html)}
 				</div>
 			</div>
-		</div>
+		</section>
 	);
 };
 

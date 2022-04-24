@@ -1,39 +1,53 @@
-import React from "react";
-
 import { getCategories, getCategoryPost } from "../../services";
-import { Navbar, PostCard, Categories, Meta } from "../../components";
+import { Navbar, Card, Categories, Meta, Footer } from "../../components";
 import { MDBContainer, MDBCol, MDBRow } from "mdb-react-ui-kit";
 
-const CategoryPost = ({ posts }) => {
+const CategoryPosts = ({ posts, category }) => {
 	return (
 		<>
-			<Meta title="SmartDev" />
-			<Navbar />
-			<main className="pt-6 pt-md-7 min-vh-100">
+			<Meta title={category.name} />
+
+			<section className="pt-6 pt-md-5 pb-6">
 				<MDBContainer>
-					<MDBRow>
-						<MDBCol size="12" lg="8">
-							{posts.map((post, index) => (
-								<PostCard key={index} post={post.node} />
-							))}
+					<MDBRow between className="gy-5">
+						<MDBCol size={12} md={8}>
+							<h1 className="fs-3 mb-4 font-semibold border-bottom border-1 border-gray pb-2">
+								{category.name}
+							</h1>
+							<MDBRow>
+								{posts.map((post, i) => (
+									<MDBCol key={i} size={12} md={6}>
+										<Card
+											img={post.node.featuredImage.url}
+											title={post.node.title}
+											excerpt={post.node.excerpt}
+											author={post.node.author.name}
+											date={post.node.createdAt}
+											slug={post.node.slug}
+										/>
+									</MDBCol>
+								))}
+							</MDBRow>
 						</MDBCol>
-						<MDBCol size="12" lg="4">
+						<MDBCol size={12} lg={3}>
 							<Categories />
 						</MDBCol>
 					</MDBRow>
 				</MDBContainer>
-			</main>
+			</section>
 		</>
 	);
 };
-export default CategoryPost;
+export default CategoryPosts;
 
 // Fetch data at build time
 export async function getStaticProps({ params }) {
 	const posts = await getCategoryPost(params.slug);
+	const categories = await getCategories();
+	const category = categories.find((category) => category.slug === params.slug);
 
 	return {
-		props: { posts },
+		props: { posts, category },
 	};
 }
 

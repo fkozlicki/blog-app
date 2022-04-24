@@ -1,44 +1,82 @@
 import Link from "next/link";
-import { MDBContainer, MDBRow, MDBCol, MDBTypography } from "mdb-react-ui-kit";
+import Image from "next/image";
+import { MDBContainer, MDBRow, MDBCol } from "mdb-react-ui-kit";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope, faGlobe } from "@fortawesome/free-solid-svg-icons";
-import logo from "../public/dark1.svg";
+import {
+	faGithub,
+	faTwitter,
+	faLinkedin,
+} from "@fortawesome/free-brands-svg-icons";
 
 const Footer = () => {
 	return (
-		<footer className="pt-5 pb-2 bg-background">
+		<footer className="bg-primary py-5">
 			<MDBContainer>
-				<MDBRow className="gy-4 gy-md-6">
-					<MDBCol size="12">
-						<a
-							href="#header"
-							className="my-link display-4 d-block fw-normal text-center m-0"
-						>
-							<img src={logo} alt="logo" className="img-fluid" width="400" />
-						</a>
-					</MDBCol>
-					<MDBCol size="12" md="6" className="text-center ">
-						<p className="m-0 fs-6 ">
-							<FontAwesomeIcon icon={faEnvelope} width="16" className="me-2" />
-							filip.kozlickii@gmail.com
+				<MDBRow center between="md" className="gy-5">
+					<MDBCol
+						size={12}
+						md={6}
+						className="d-flex flex-column align-items-center align-items-md-start justify-content-between"
+					>
+						<Link href="/">
+							<a>
+								<Image src="/fk.svg" alt="logo" width={90} height={50} />
+							</a>
+						</Link>
+						<p className="d-none d-md-inline m-0 copy">
+							© 2022 Filip Koźlicki. All Rights Reserved.
 						</p>
-						<a href="#!" className="my-link m-0 fs-6">
-							<FontAwesomeIcon icon={faGlobe} width="16" className="me-2" />
-							www.kozlicki.com
-						</a>
 					</MDBCol>
-					<MDBCol size="12" md="6" className="text-center ">
-						<Link href="/contact">
-							<a className="my-link d-block">Kontakt</a>
-						</Link>
-						<Link href="/blog">
-							<a className="my-link d-block">Blog</a>
-						</Link>
+					<MDBCol size={12} md={4}>
+						<MDBRow>
+							<MDBCol>
+								<div className="d-flex flex-column gap-2 align-items-center align-items-md-end">
+									<Link href="/">
+										<a className="link">Home</a>
+									</Link>
+									<Link href="/#posts">
+										<a className="link">Posty</a>
+									</Link>
+									<Link href="/#contact">
+										<a className="link">Kontakt</a>
+									</Link>
+								</div>
+							</MDBCol>
+							<MDBCol>
+								<div className="d-flex flex-column gap-2 align-items-center align-items-md-end">
+									<a
+										href="https://github.com/fkozlicki"
+										target="_blank"
+										rel="noreferrer noopener"
+										className="d-inline-flex gap-2 link"
+									>
+										Github <FontAwesomeIcon width={16} icon={faGithub} />
+									</a>
+
+									<a
+										href="https://twitter.com/FKozlicki"
+										target="_blank"
+										rel="noreferrer noopener"
+										className="d-inline-flex gap-2 link"
+									>
+										Twitter <FontAwesomeIcon width={16} icon={faTwitter} />
+									</a>
+
+									<a
+										href="https://www.linkedin.com/in/fkozlicki/"
+										target="_blank"
+										rel="noreferrer noopener"
+										className="d-inline-flex gap-2 link"
+									>
+										LinkedIn <FontAwesomeIcon width={16} icon={faLinkedin} />
+									</a>
+								</div>
+							</MDBCol>
+						</MDBRow>
 					</MDBCol>
-					<MDBCol>
-						<MDBTypography className="text-center m-0">
-							<small>@copyright All rights reserved.</small>
-						</MDBTypography>
+
+					<MDBCol className="d-md-none text-center copy">
+						© 2022 Filip Koźlicki. All Rights Reserved.
 					</MDBCol>
 				</MDBRow>
 			</MDBContainer>

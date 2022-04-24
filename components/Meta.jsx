@@ -1,5 +1,5 @@
 import Head from "next/head";
-import logo from "../public/logo.png";
+import logo from "/public/logo.png";
 
 const Meta = ({ title, keywords, description }) => {
 	return (
@@ -15,10 +15,10 @@ const Meta = ({ title, keywords, description }) => {
 };
 
 Meta.defaultProps = {
-	title: "Programista HTML",
+	title: "Filip Koźlicki",
 	keywords:
-		"programista html blog informacje nowości programiści webdev początkujący",
-	description: "Blog dla początkujących web developerów",
+		"programista html blog informacje nowości programiści webdev początkujący css react",
+	description: "Blog dla początkujących front-end developerów.",
 };
 
 export default Meta;

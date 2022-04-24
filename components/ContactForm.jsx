@@ -1,12 +1,7 @@
-import { MDBInput, MDBRow, MDBCol, MDBBtn } from "mdb-react-ui-kit";
-import {
-	faEnvelope,
-	faUser,
-	faMessage,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { MDBRow, MDBCol, MDBBtn } from "mdb-react-ui-kit";
 import { useRef, useState } from "react";
 import emailjs from "emailjs-com";
+import { isEmail } from "../services";
 
 const ContactForm = () => {
 	const [showSuccessMessage, setShowSuccessMessage] = useState("");
@@ -15,12 +10,6 @@ const ContactForm = () => {
 	const nameRef = useRef();
 	const emailRef = useRef();
 	const messageRef = useRef();
-
-	const isEmail = (email) => {
-		return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
-			email
-		);
-	};
 
 	const sendEmail = (e) => {
 		e.preventDefault();
@@ -62,80 +51,72 @@ const ContactForm = () => {
 	};
 
 	return (
-		<form
-			ref={formRef}
-			onSubmit={sendEmail}
-			className="p-3 position-relative rounded-3"
-			style={{
-				maxWidth: "500px",
-				zIndex: "10",
-				backgroundColor: "#ffffff80",
-				backdropFilter: "blur(2px)",
-			}}
-		>
-			<MDBRow className="gy-3">
-				<MDBCol size="12" md="6">
-					<MDBInput
-						inputRef={nameRef}
-						id="name"
-						size="lg"
-						type="text"
-						label="Imię"
-						name="from_name"
-						className="pe-4 position-relative"
-					>
-						<FontAwesomeIcon
-							icon={faUser}
-							className="position-absolute top-50 end-0 translate-middle"
-							width="16"
-						/>
-					</MDBInput>
-				</MDBCol>
-				<MDBCol size="12" md="6">
-					<MDBInput
-						inputRef={emailRef}
-						className="pe-4 position-relative"
-						label="Email"
-						id="email"
-						type="email"
-						name="user_email"
-						size="lg"
-					>
-						<FontAwesomeIcon
-							icon={faEnvelope}
-							className="position-absolute top-50 end-0 translate-middle"
-							width="16"
-						/>
-					</MDBInput>
-				</MDBCol>
-				<MDBCol size="12">
-					<MDBInput
-						inputRef={messageRef}
-						id="message"
-						label="Wiadomość"
-						size="lg"
-						name="message"
-						textarea
-						rows="6"
-						className="pe-4 position-relative"
-					>
-						<FontAwesomeIcon
-							icon={faMessage}
-							className="position-absolute end-0 translate-middle"
-							width="16"
-							style={{ top: "9%" }}
-						/>
-					</MDBInput>
-				</MDBCol>
-				<MDBCol className="d-flex align-items-center justify-content-between">
-					<MDBBtn type="submit">Wyślij</MDBBtn>
-					{error && <div className="text-danger fw-bold">{error}</div>}
-					{showSuccessMessage && (
-						<div className="text-success fw-bold">Wysłano pomyślnie</div>
-					)}
-				</MDBCol>
-			</MDBRow>
-		</form>
+		<section>
+			<h1 className="fs-3 mb-4 font-semibold border-bottom border-1 border-gray pb-2">
+				Kontakt
+			</h1>
+			<form
+				ref={formRef}
+				onSubmit={sendEmail}
+				className="contact-form"
+				style={{ maxWidth: "600px" }}
+			>
+				<MDBRow className="gy-4">
+					<MDBCol size="12" md="6">
+						<div className="d-flex flex-column input-box">
+							<input
+								ref={nameRef}
+								type="text"
+								id="name"
+								name="from_name"
+								className="input"
+							/>
+							<label htmlFor="name" className="label order-first">
+								Imię
+							</label>
+							<div className="input-border"></div>
+						</div>
+					</MDBCol>
+					<MDBCol size="12" md="6">
+						<div className="d-flex flex-column input-box">
+							<input
+								ref={emailRef}
+								name="user_email"
+								type="email"
+								id="email"
+								className="input"
+							/>
+							<label htmlFor="email" className="label order-first">
+								Email
+							</label>
+							<div className="input-border"></div>
+						</div>
+					</MDBCol>
+					<MDBCol size="12">
+						<div className="d-flex flex-column input-box">
+							<textarea
+								ref={messageRef}
+								id="message"
+								rows={5}
+								cols={10}
+								className="input"
+							/>
+							<label htmlFor="message" className="label order-first">
+								Wiadomość
+							</label>
+							<div className="input-border"></div>
+						</div>
+					</MDBCol>
+					<MDBCol className="d-flex align-items-center justify-content-between">
+						<MDBBtn type="submit">Wyślij</MDBBtn>
+						{error && <div className="text-danger fw-bold">{error}</div>}
+						{showSuccessMessage && (
+							<div className="text-success fw-bold">Wysłano pomyślnie</div>
+						)}
+					</MDBCol>
+				</MDBRow>
+			</form>
+		</section>
 	);
 };
 
