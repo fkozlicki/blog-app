@@ -6,6 +6,7 @@ import {
 	MDBNavbar,
 	MDBNavbarBrand,
 	MDBNavbarNav,
+	MDBNavbarItem,
 	MDBCollapse,
 } from "mdb-react-ui-kit";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -68,42 +69,63 @@ const Navbar = () => {
 					</button>
 					<MDBCollapse id="navbarCollapse" show={isOpen} navbar>
 						<MDBNavbarNav left>
-							<Link href="/">
-								<a className="py-2 px-md-3 fw-bold link">Home</a>
-							</Link>
-							<Link href="/#posts">
-								<a className="py-2 px-md-3 fw-bold link">Posty</a>
-							</Link>
-							<Link href="/#contact">
-								<a className="py-2 px-md-3 fw-bold link">Kontakt</a>
-							</Link>
+							<MDBNavbarItem>
+								<Link href="/">
+									<a className="d-block py-2 px-md-3 fw-bold link">Home</a>
+								</Link>
+							</MDBNavbarItem>
+							<MDBNavbarItem>
+								<Link href="/#posts">
+									<a className="d-block py-2 px-md-3 fw-bold link">Posty</a>
+								</Link>
+							</MDBNavbarItem>
+							<MDBNavbarItem>
+								<Link href="/#contact">
+									<a className="d-block py-2 px-md-3 fw-bold link">Kontakt</a>
+								</Link>
+							</MDBNavbarItem>
 						</MDBNavbarNav>
 						<div className="d-flex justify-content-center gap-4 py-2">
 							<a
+								className="d-inline-flex gap-2 link"
 								href="https://github.com/fkozlicki"
-								className="d-inline-flex gap-2 link"
 								target="_blank"
 								rel="noreferrer noopener"
+								aria-label="Przejdź do mojego Githuba"
 							>
-								<FontAwesomeIcon width={20} icon={faGithub} />
+								<FontAwesomeIcon
+									aria-hidden="true"
+									width={20}
+									icon={faGithub}
+								/>
 							</a>
 
 							<a
+								className="d-inline-flex gap-2 link"
 								href="https://twitter.com/FKozlicki"
-								className="d-inline-flex gap-2 link"
 								target="_blank"
 								rel="noreferrer noopener"
+								aria-label="Przejdź do mojego Twittera"
 							>
-								<FontAwesomeIcon width={20} icon={faTwitter} />
+								<FontAwesomeIcon
+									aria-hidden="true"
+									width={20}
+									icon={faTwitter}
+								/>
 							</a>
 
 							<a
+								className="d-inline-flex gap-2 link"
 								href="https://www.linkedin.com/in/fkozlicki/"
 								target="_blank"
 								rel="noreferrer noopener"
-								className="d-inline-flex gap-2 link"
+								aria-label="Przejdź do mojego LinkedIna"
 							>
-								<FontAwesomeIcon width={20} icon={faLinkedin} />
+								<FontAwesomeIcon
+									aria-hidden="true"
+									width={20}
+									icon={faLinkedin}
+								/>
 							</a>
 						</div>
 					</MDBCollapse>
